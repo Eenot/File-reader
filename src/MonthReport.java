@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MonthReport {
-    static boolean isChecked = false; //Проверка на то, считан ли был отчёт
-    public static HashMap<Integer,ArrayList<MonthToLine>> monthStatistic = new HashMap<>();
+    boolean isChecked = false; //Проверка на то, считан ли был отчёт
+    public static HashMap<Integer,ArrayList<MonthLine>> monthStatistic = new HashMap<>();
     MonthConverter monthConverter = new MonthConverter();
 
     void checkReport() { //метод считывания отчётов из файлов
@@ -25,7 +25,7 @@ public class MonthReport {
             double maxExpenseSummary = 0.0;
             System.out.println("Месяц: " + monthConverter.numToMonth(month));
 
-            for (MonthToLine line : monthStatistic.get(month)) {
+            for (MonthLine line : monthStatistic.get(month)) {
                 if (!(line.isExpense)) {
                     if (maxIncome < line.quantity * line.sumOne) {
                         maxIncome = line.quantity * line.sumOne;

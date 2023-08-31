@@ -3,7 +3,7 @@ import java.util.List;
 
 public class YearReader {
     FileReader fileReader = new FileReader();
-    ArrayList<YearToLine> years = new ArrayList<>();
+    ArrayList<YearLine> years = new ArrayList<>();
 
     public YearReader(String path) {
         List<String> lines = fileReader.readFileContents(path);
@@ -13,7 +13,7 @@ public class YearReader {
             String monthNum = things[0];
             Double amount = Double.parseDouble(things[1]);
             Boolean isExpense = Boolean.parseBoolean(things[2]);
-            YearToLine yearLine = new YearToLine(monthNum,amount,isExpense);
+            YearLine yearLine = new YearLine(monthNum,amount,isExpense);
             years.add(yearLine);
         }
     }

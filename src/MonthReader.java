@@ -3,7 +3,7 @@ import java.util.List;
 
 public class MonthReader {
     FileReader fileReader = new FileReader();
-    ArrayList<MonthToLine> month = new ArrayList<>();
+    ArrayList<MonthLine> month = new ArrayList<>();
     public MonthReader(String path) {
         List<String> lines = fileReader.readFileContents(path);
         for (int i = 1; i < lines.size(); i++) {
@@ -13,7 +13,7 @@ public class MonthReader {
             Boolean isExpense = Boolean.parseBoolean(things[1]);
             Integer quantity = Integer.parseInt(things[2]);
             Double sumOne = Double.parseDouble(things[3]);
-            MonthToLine monthLine = new MonthToLine(itemName,isExpense,quantity,sumOne);
+            MonthLine monthLine = new MonthLine(itemName,isExpense,quantity,sumOne);
             month.add(monthLine);
         }
     }

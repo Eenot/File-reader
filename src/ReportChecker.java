@@ -1,30 +1,27 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
-public class CheckReports {
-    HashMap<Integer ,ArrayList<MonthToLine>> monthsStatistic;
-    ArrayList<YearToLine> yearStatistic;
+public class ReportChecker {
+    HashMap<Integer ,ArrayList<MonthLine>> monthStatistic;
+    ArrayList<YearLine> yearStatistic = new ArrayList<>();
     MonthConverter monthConverter = new MonthConverter();
+    MonthReport monthReport = new MonthReport();
+    YearReport yearReport = new YearReport();
 
-    public CheckReports(HashMap<Integer, ArrayList<MonthToLine>> monthsStatistic, ArrayList<YearToLine> yearStatistic) {
-        this.monthsStatistic = monthsStatistic;
+    public ReportChecker(HashMap<Integer, ArrayList<MonthLine>> monthStatistic, ArrayList<YearLine> yearStatistic) {
+        this.monthStatistic = monthStatistic;
         this.yearStatistic = yearStatistic;
     }
 
-
-
-
     void getCheckedReports() {
-
-        if (!MonthReport.isChecked && !YearReport.isChecked) {
+        if (!monthReport.isChecked && !yearReport.isChecked) {
             System.out.println("Перед сверкой отчётов, необходимо их считать!");
         } else {
             ArrayList<Integer> errors = new ArrayList<>();
-            for (Integer month : monthsStatistic.keySet()) {
+            for (Integer month : monthStatistic.keySet()) {
                 double expenseSum = 0.0;
                 double incomeSum = 0.0;
-                for (MonthToLine line : monthsStatistic.get(month)) {
+                for (MonthLine line : monthStatistic.get(month)) {
                     if (line.isExpense) {
                         expenseSum += (line.quantity * line.sumOne);
                     } else {
@@ -33,7 +30,7 @@ public class CheckReports {
                 }
                 String strMonth = "0" + month;
 
-                for (YearToLine line : yearStatistic) {
+                for (YearLine line : yearStatistic) {
                     if (line.month.equals(strMonth) && line.isExpense) {
                         if (line.amount != expenseSum) {
                             errors.add(month);

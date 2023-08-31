@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class YearReport {
-    static boolean isChecked = false; //проверка на то считан ли был отчёт
-    static ArrayList<YearToLine> years;
+    boolean isChecked = false; //проверка на то считан ли был отчёт
+    static ArrayList<YearLine> years;
     MonthConverter monthConverter = new MonthConverter();
 
     void checkReport() {
@@ -18,7 +18,7 @@ public class YearReport {
         double allIncomes = 0.0;
         double allOutcomes = 0.0;
 
-        for (YearToLine year : years) {
+        for (YearLine year : years) {
             if (!profits.containsKey(year.month)) {
                 profits.put(year.month,0.0);
             }

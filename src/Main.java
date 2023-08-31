@@ -3,15 +3,13 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         MonthReport monthReport = new MonthReport();
         YearReport yearReport = new YearReport();
 
-
         while(true) {
             printMenu();
-            int command = sc.nextInt();
-
+            int command = scanner.nextInt();
             switch (command) {
                 case 1:
                     monthReport.checkReport();
@@ -19,21 +17,21 @@ public class Main {
                     break;
                 case 2:
                     yearReport.checkReport();
-                    System.out.println("Все отчёты успешно считаны!");
+                    System.out.println("Годовой отчёт успешно считан!");
                     break;
                 case 3:
-                    CheckReports checkReports = new CheckReports(MonthReport.monthStatistic, YearReport.years);
-                    checkReports.getCheckedReports();
+                    ReportChecker reportChecker = new ReportChecker(MonthReport.monthStatistic, YearReport.years);
+                    reportChecker.getCheckedReports();
                     break;
                 case 4:
-                    if (MonthReport.isChecked) {
+                    if (monthReport.isChecked) {
                         monthReport.printMonthsStatistic();
                     } else {
                         System.out.println("Перед выводом информации об отчётах по месяцам необходимо их считать!");
                     }
                     break;
                 case 5:
-                    if (YearReport.isChecked) {
+                    if (yearReport.isChecked) {
                         yearReport.printYearStatistic();
                     } else {
                         System.out.println("Перед выводом информации об отчёте за год необходимо его считать!");
