@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 public class MonthReport {
     boolean isChecked = false; //Проверка на то, считан ли был отчёт
-    public static HashMap<Integer,ArrayList<MonthLine>> monthStatistic = new HashMap<>();
+    HashMap<Integer,ArrayList<MonthLine>> monthStatistic = new HashMap<>();
     MonthConverter monthConverter = new MonthConverter();
 
     void checkReport() { //метод считывания отчётов из файлов

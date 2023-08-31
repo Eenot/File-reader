@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 public class YearReport {
     boolean isChecked = false; //проверка на то считан ли был отчёт
-    static ArrayList<YearLine> years;
+    ArrayList<YearLine> years;
     MonthConverter monthConverter = new MonthConverter();
 
     void checkReport() {

@@ -20,7 +20,7 @@ public class Main {
                     System.out.println("Годовой отчёт успешно считан!");
                     break;
                 case 3:
-                    ReportChecker reportChecker = new ReportChecker(MonthReport.monthStatistic, YearReport.years);
+                    ReportChecker reportChecker = new ReportChecker(monthReport.monthStatistic, yearReport.years);
                     reportChecker.getCheckedReports();
                     break;
                 case 4:
