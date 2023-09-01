@@ -3,9 +3,13 @@ public class YearLine {
     Double amount;
     Boolean isExpense;
 
-    public YearLine(String month, Double amount, Boolean is_expense) {
+    public YearLine(String month, Double amount, Boolean isExpense) {
         this.month = month;
         this.amount = amount;
-        this.isExpense = is_expense;
+        this.isExpense = isExpense;
+    }
+
+    public Boolean getExpense() {
+        return isExpense;
     }
 }

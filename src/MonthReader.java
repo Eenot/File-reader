@@ -4,6 +4,7 @@ import java.util.List;
 public class MonthReader {
     FileReader fileReader = new FileReader();
     ArrayList<MonthLine> month = new ArrayList<>();
+
     public MonthReader(String path) {
         List<String> lines = fileReader.readFileContents(path);
         for (int i = 1; i < lines.size(); i++) {

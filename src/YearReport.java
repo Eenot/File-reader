@@ -31,8 +31,6 @@ public class YearReport {
             }
         }
 
-
-
         for (String month : profits.keySet()) {
             double amount = profits.get(month);
             System.out.println("Прибыль за " + monthConverter.numToMonth(month) + ": " + amount);
