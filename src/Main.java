@@ -20,8 +20,12 @@ public class Main {
                     System.out.println("Годовой отчёт успешно считан!");
                     break;
                 case 3:
-                    ReportChecker reportChecker = new ReportChecker(monthReport.monthStatistic, yearReport.years);
-                    reportChecker.getCheckedReports();
+                    if (monthReport.isChecked && yearReport.isChecked) {
+                        ReportChecker reportChecker = new ReportChecker(monthReport.monthStatistic, yearReport.years);
+                        reportChecker.getCheckedReports();
+                    } else {
+                        System.out.println("Чтобы сверить отчёты для начала их необходимо считать!");
+                    }
                     break;
                 case 4:
                     if (monthReport.isChecked) {

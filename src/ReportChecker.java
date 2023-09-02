@@ -5,8 +5,6 @@ public class ReportChecker {
     HashMap<Integer, ArrayList<MonthLine>> monthStatistic = new HashMap<>();
     ArrayList<YearLine> yearStatistic = new ArrayList<>();
     MonthConverter monthConverter = new MonthConverter();
-    MonthReport monthReport = new MonthReport();
-    YearReport yearReport = new YearReport();
 
     public ReportChecker(HashMap<Integer, ArrayList<MonthLine>> monthStatistic, ArrayList<YearLine> yearStatistic) {
         this.monthStatistic = monthStatistic;
@@ -14,10 +12,6 @@ public class ReportChecker {
     }
 
     void getCheckedReports() {
-        if (!monthReport.isChecked && !yearReport.isChecked) {
-            System.out.println("Перед сверкой отчётов, необходимо их считать!");
-            return;
-        }
         ArrayList<Integer> errors = new ArrayList<>();
         for (Integer month : monthStatistic.keySet()) {
             double expenseSum = 0.0;
